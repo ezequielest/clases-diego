@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherbit</title>
+</head>
+<body>
+
+    Pronostico actual en la ciudad: <span id="cityName"></span>
+
+    <div>Amanecer: <span id="amanecer"></span></div>
+    <div>Atardecer: <span id="atardecer"></span></div>
+
+    <div>Temp: <span id="temp"></span></div>
+    <div>Wind: <span id="wind"></span></div>
+
+
+    <input type="text" id="cp" placeholder="Codigo postal" value="7600">
+    <button id="getWeather">Obtener</button>
+    <!-- 7630 necochea -->
+    <script>
+
+    let codigoPostal = 7600;
+    getCurrentWeather(codigoPostal);
+
+    function getCurrentWeather(codigoPostal) {
+        dataEndpoint = fetch(`https://api.weatherbit.io/v2.0/current?key=f3acb947fe9a4601aaca23a79e0e7bb4&postal_code=${codigoPostal}`)
+        .then(response => response.json())
+        .then(datosEndpoint => { 
+            console.log(datosEndpoint)
+            let currentDataTime = datosEndpoint.data;
+
+            document.getElementById('cityName').innerHTML = currentDataTime[0].city_name
+            document.getElementById('amanecer').innerHTML = currentDataTime[0].sunrise
+            document.getElementById('atardecer').innerHTML = currentDataTime[0].sunset
+
+            document.getElementById('temp').innerHTML = currentDataTime[0].temp
+            document.getElementById('wind').innerHTML = currentDataTime[0].wind_spd
+
+            }
+        );
+    }
+
+    document.getElementById('getWeather').addEventListener('click', function() {
+        codigoPostal = document.getElementById('cp').value;
+        getCurrentWeather(codigoPostal)
+    })
+
+    </script>
+</body>
+</html>
