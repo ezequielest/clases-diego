@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" href="./assets/pluma.jpg">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+      .random-qoute {
+        padding: 20px;
+      }
+  </style>
+
+  <title>Random-Message</title>
+</head>
+<body>
+
+  <div id=app>
+    <div class="main-container z-depth-2">
+      <div id="muestraAleatorio" class="random-qoute">
+          <input type="text" id="quote">
+          <input type="text" id="author">
+      </div>
+      <div class="section container">  
+        <button class="btn left" id="twitter"><img src="./assets/twitter.png" alt="twitter"></button>
+        <button class="btn left" id="tumblr"><img src="./assets/tmblr.png" alt="tumblr"></button>
+        <button class="btn right waves-effect waves-light" id="new">New Quote</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const colores = ['#000', '#fff','#ff0000'];
+
+    const quotes = [
+    {
+        quote: 'Eighty percent of success is showing up.',
+        author: '- Woody Allen'
+    },
+    {
+        quote: 'Start where you are. Use what you have. Do what you can.',
+        author: '- Arthur Ashe'
+    },
+    {
+        quote: 'It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings.',
+        author: '- Ann Landers'
+    },
+    {
+        quote: 'You can’t use up creativity. The more you use, the more you have.',
+        author: '- Maya Angelou'
+    },
+    {
+        quote: 'We must balance conspicuous consumption with conscious capitalism.',
+        author: '- Kevin Kruse'
+    },
+    {
+        quote: 'Whatever you can do, or dream you can, begin it. Boldness has genius, power and magic in it.',
+        author: '- Johann Wolfgang von Goethe'
+    },
+    {
+        quote: 'Limitations live only in our minds. But if we use our imaginations, our possibilities become limitless.',
+        author: '- Jamie Paolinetti'
+    },
+    {
+        quote: 'It’s not the years in your life that count. It’s the life in your years.',
+        author: '- Abraham Lincoln'
+    },
+    {
+        quote: 'The two most important days in your life are the day you are born and the day you find out why.',
+        author: '- Mark Twain'
+    },
+    {
+        quote: 'The question isn’t who is going to let me; it’s who is going to stop me.',
+        author: '- Ayn Rand'
+    },
+    {
+        quote: 'Build your own dreams, or someone else will hire you to build theirs.',
+        author: '- Farrah Gray'
+    },
+    {
+        quote: 'Ask and it will be given to you; search, and you will find; knock and the door will be opened for you.',
+        author: '- Jesus'
+    },
+    {
+        quote: 'Certain things catch your eye, but pursue only those that capture the heart.',
+        author: '- Ancient Indian Proverb'
+    },
+    {
+        quote: 'I would rather die of passion than of boredom.',
+        author: '- Vincent van Gogh'
+    },
+    {
+        quote: 'Life is what happens to you while you’re busy making other plans.',
+        author: '- John Lennon'
+    },
+    ]
+
+
+    document.getElementById('new').addEventListener('click', function() {
+        let quoteAleatorio = getRandomArbitrary(0, quotes.length);
+
+        document.getElementById('quote').value = quotes[quoteAleatorio].quote;
+        document.getElementById('author').value = quotes[quoteAleatorio].author;
+
+        let colorAleatorio = getRandomArbitrary(0, colores.length);
+
+        document.getElementById('muestraAleatorio').style.backgroundColor = colores[colorAleatorio];
+
+        /*document.getElementById('muestraAleatorio').value = `
+            <h4 class="center">${ quotes[numeroAleatorio].quote }</h4>
+            <p class="center">${  quotes[numeroAleatorio].author }</p>`*/
+    })
+
+
+    /*<h4 class="center"></h4>
+    <p class="center"></p>*/
+
+    function getRandomArbitrary(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+  </script>
+
+
+</body>
+</html>

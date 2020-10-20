@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nombre-supper {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h3>Peliculas</h3>
+        <ul>
+            <li>
+                <h4>Batman</h4>
+                <ul>
+                    <li>Plata</li>
+                </ul>
+            </li>
+            <li>
+                <h4>Superman</h4>
+                <ul>
+                    <li>Vuela</li>
+                </ul>
+
+            </li>
+            <li>
+                <h4>Ironman</h4>
+                <ul>
+                    <li>Genio</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    -----------------------------
+
+    <div id="superArr">
+        <ul id="listaArr"></ul>
+    </div>
+
+    ------------------------------
+
+
+    <div id="superObj">
+        <ul id="listaObj"></ul>
+    </div>
+    
+
+    <script>
+
+        var superArr = ['Batman','Superman','Ironman'];
+
+        html = '';
+        superArr.forEach(el => {
+            html += `<li><h4> ${el} </h4></li>`;
+        });
+
+        document.getElementById('listaArr').innerHTML = html;
+
+    </script>
+
+    <script>
+    
+        var superArr = [{
+            nombre: 'Batman',
+            nombreOriginal: 'Brus',
+            poderes: ['Dinero','Fuerza'],
+            edad: 35,
+            fuerza: 80,
+            sexo: 'M'
+        },
+        {
+            nombre: 'Superman',
+            nombreOriginal: 'Klark',
+            poderes: ['Aliento','Fuerza'],
+            edad: 29,
+            fuerza: 350,
+            sexo: 'M'
+        },
+        {
+            nombre: 'Ironman',
+            nombreOriginal: 'Tony',
+            poderes: ['Dinero','Inteligencia'],
+            edad: 38,
+            fuerza: 70,
+            sexo: 'M'
+        },
+        {
+            nombre: 'Batichica',
+            nombreOriginal: '',
+            poderes: ['',''],
+            edad: 25,
+            fuerza: 50,
+            sexo: 'F'
+        }];
+
+        html = '';
+        superArr.forEach(el => {
+            console.log(el);
+  
+
+            html += `<li>
+                        <h4 class="nombre-supper"> ${el.nombre} </h4>
+                        <h5> ${el.nombreOriginal} </h4>
+                        Poderes:
+                        <ul>`;
+                            
+            el.poderes.forEach(poder => {
+               html += `<li>${poder}</li>`
+            })
+
+            html+= '</ul></li>';
+
+           
+
+        });
+
+        document.getElementById('listaArr').innerHTML = html;
+        
+    </script>
+
+</body>
+</html>

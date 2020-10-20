@@ -1,0 +1,42 @@
+:root {
+  --primary: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+  --font-family: "Montserrat", sans-serif;
+}
+
+.body {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  width: 100vw;
+  justify-content: center;
+}
+
+.our-pricing {
+  grid-row: 1;
+  grid-column: 2;
+  min-width: 200px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.pricing-container {
+  min-width: 300px;
+  color: var(--grayish-blue);
+}
+
+.plans {
+  grid-row: 2;
+  min-width: 450px;
+  height: 50vh;
+}
+
+.professional {
+  height: 60vh;
+  margin-top: -10%;
+}

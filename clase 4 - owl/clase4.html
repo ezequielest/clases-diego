@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./libs/owl/dist/assets/owl.carousel.css">
+    <link rel="stylesheet" href="./libs/owl/dist/assets/owl.theme.default.css">
+
+    <style>
+        .item {
+            background-color: teal;
+            height: 200px;
+            margin: 10px;
+        }
+
+        .owl-next {
+            height: 20px;
+            width: 20px;
+            background-color: tomato !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Set up your HTML -->
+    <div class="owl-carousel">
+        <div class="item"> Your Content </div>
+        <div class="item"> Your Content </div>
+        <div class="item"> Your Content </div>
+        <div class="item"> Your Content </div>
+        <div class="item"> Your Content </div>
+        <div class="item"> Your Content </div>
+        <div class="item"> Your Content </div>
+    </div>
+
+    <script src="./libs/jquery/jquery.js"></script>
+    <script src="./libs/owl/dist/owl.carousel.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                items: 2,
+                nav: true
+            });
+        });
+</script>
+</body>
+</html>
